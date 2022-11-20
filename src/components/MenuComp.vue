@@ -1,19 +1,19 @@
 <template>
   <nav style="background-color:#BD3936" class="navbar navbar-expand-lg navbar-dark shadow">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <router-link class="navbar-brand" to="/">
         <img class="rounded shadow" width="50" src="https://i.pinimg.com/564x/21/da/a0/21daa0fd61d20932a6e531d3240b6731.jpg"/>
-    </a>
+    </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <router-link class="nav-link active" aria-current="page" to="/hackers">Hackers</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <router-link class="nav-link" to="/login">Login</router-link>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
