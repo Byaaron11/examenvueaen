@@ -10,20 +10,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <router-link class="nav-link active" aria-current="page" to="/hackers">Hackers</router-link>
+          <router-link class="nav-link active" aria-current="page" to="/tienda">Tienda</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/login">Login</router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/registro">Registrarse</router-link>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Marcas de Cubos
           </a>
           <ul class="dropdown-menu shadow" style="background-color:#E1AE8B">
-            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li v-for="mar in marcas" :key="mar">
+              <router-link :to="'/cubosmarcas/'+mar" class="dropdown-item">
+                {{mar}}
+              </router-link>
+            </li>
+            <!-- <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
           </ul>
         </li>
         
@@ -38,8 +46,19 @@
 </template>
 
 <script>
-
+import CuboService from './../services/CubosService';
+const service = new CuboService();
 export default {
-    name: "MenuComp"
+    name: "MenuComp",
+    data(){
+      return{
+        marcas: [],
+      }
+    },
+    mounted(){
+      service.getMarcas().then(result=>{
+        this.marcas = result;
+      });
+    }
 }
 </script>
